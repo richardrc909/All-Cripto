@@ -1,3 +1,4 @@
 venv/
 scrapy.cfg
 settings.py
+__pycache__/
