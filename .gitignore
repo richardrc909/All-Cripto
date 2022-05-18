@@ -2,3 +2,5 @@ venv/
 scrapy.cfg
 settings.py
 __pycache__/
+migrations/
+allcripto.db
