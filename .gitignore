@@ -1,2 +1,3 @@
 venv/
 scrapy.cfg
+settings.py
