@@ -13,7 +13,7 @@ class SpiderCriptoPipeline:
 
 
     def __init__(self) -> None:
-        self.con = sqlite3.connect('allcrypto.db')
+        self.con = sqlite3.connect('allcripto.db')
         self.cur = self.con.cursor()
         self.create_table()
 
@@ -38,7 +38,7 @@ class CriptoBodyPipeline():
 
     
     def __init__(self) -> None:
-        self.con = sqlite3.connect('allcrypto.db')
+        self.con = sqlite3.connect('allcripto.db')
         self.cur = self.con.cursor()
         self.create_table()
 
