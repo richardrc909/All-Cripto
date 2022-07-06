@@ -5,19 +5,19 @@ Primero es importante crear la carpeta base o directorio principal donde se van 
 
 Esto se hace con mkdir (nombre de la carpeta) o  dentro de la carpeta a usar si ya la tienes creada
 
-1. Luego ejecutar en consola:
+1.Luego ejecutar en consola:
 
-En Windows: py -m venv venv
+ En Windows: py -m venv venv
 
-En Linux: sudo pip3 install virtualenv
+ En Linux: sudo pip3 install virtualenv
 
-2. Activar el entorno virtual con:
+2.Activar el entorno virtual con:
 
 En Windows: venv\Scripts\activate
 
 En Linux: source /venv/bin/activate
 
-3. Asegurate de tener activado el entorno virtual, en tu consola aparecerá la palabra venv o env al lado del directorio actual
+3.Asegurate de tener activado el entorno virtual, en tu consola aparecerá la palabra venv o env al lado del directorio actual
 
 Descargar con pip las dependencias:
 
@@ -31,7 +31,7 @@ pip install beautifulsoup4
 
 pip install django-extensions
 
-4. Una vez instaladas las dependencias en el directorio principal ejecutar en consola
+4.Una vez instaladas las dependencias en el directorio principal ejecutar en consola
 
 scrapy startproject (nombre de tu proyecto)
 
