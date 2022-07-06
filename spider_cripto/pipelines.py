@@ -25,8 +25,8 @@ class CriptoAnchorPipeline():
 
         # datos_bit = self.cur.execute(""" INSERT INTO allcripto_anchor_bit (anchor_bit) VALUES(?)""",
         #                  (item['anchor']))
-        datos_eth = self.cur.execute(""" INSERT INTO allcripto_anchor_eth (anchor_eth) VALUES(?)""",
-                         (item['anchor']))
+        # datos_eth = self.cur.execute(""" INSERT INTO allcripto_anchor_eth (anchor_eth) VALUES(?)""",
+        #                  (item['anchor']))
         # datos_meta = self.cur.execute(""" INSERT INTO allcripto_anchor_meta (anchor_meta) VALUES(?)""",
         #                  (item['anchor']))
         # datos_tutorial = self.cur.execute(""" INSERT INTO allcripto_anchor_tutorial (anchor_tutorial) VALUES(?)""",

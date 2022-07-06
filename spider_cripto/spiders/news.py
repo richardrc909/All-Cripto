@@ -16,11 +16,31 @@ class BitcoinSpider(Spider):
     }
     download_delay = 2
 
+    ''' En start_requests para obtener la información ordenada en las spider, primero extraigo los links 
+    y en la variable datos son pasados como una lista iterable para justamente obtener la noticia entera '''
+
+    ''' Las listas que siguen sirven para cambiar los valores de la variable datos según que tipo de noticia
+    deseamos obtener '''
+
+    list_tables = ['allcripto_anchor_bit', 
+    'allcripto_anchor_eth', 
+    'allcripto_anchor_meta', 
+    'allcripto_anchor_prices',
+    'allcripto_anchor_tutorial',
+    'allcripto_anchor_business']
+
+    select_colum = ['anchor_bit',
+    'anchor_eth',
+    'anchor_meta',
+    'anchor_prices',
+    'anchor_tutorial',
+    'anchor_business']
+
     def start_requests(self):
         con = sqlite3.connect('allcripto.db')
         con.row_factory = lambda cursor, row:row[0]
         c = con.cursor()
-        datos = c.execute("SELECT anchor_eth FROM allcripto_anchornews").fetchall()
+        datos = c.execute("SELECT anchor_bit FROM allcripto_anchor_bit").fetchall()
         for partial_link in datos:
             yield scrapy.Request(base_url.format(partial_link))
 
