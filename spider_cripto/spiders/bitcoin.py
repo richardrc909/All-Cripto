@@ -3,7 +3,7 @@ import sqlite3
 from scrapy import Spider
 from bs4 import BeautifulSoup
 from scrapy.loader import ItemLoader
-from spider_cripto.items import SpiderCriptoItem
+from spider_cripto.items import CriptoItem
 
 
 base_url = 'https://es.cointelegraph.com{}'
@@ -17,10 +17,10 @@ class BitcoinSpider(Spider):
     download_delay = 2
 
     def start_requests(self):
-        con = sqlite3.connect('allcrypto.db')
+        con = sqlite3.connect('allcripto.db')
         con.row_factory = lambda cursor, row:row[0]
         c = con.cursor()
-        datos = c.execute("SELECT anchor FROM allcripto_bitcoinseed").fetchall()
+        datos = c.execute("SELECT anchor_eth FROM allcripto_anchornews").fetchall()
         for partial_link in datos:
             yield scrapy.Request(base_url.format(partial_link))
 
@@ -29,7 +29,7 @@ class BitcoinSpider(Spider):
         title = soup.find('h1', 'post__title').text
         header = soup.find('p', 'post__lead').text
         content = soup.find('div',class_="post-content").text
-        item = ItemLoader(SpiderCriptoItem())
+        item = ItemLoader(CriptoItem())
         item.add_value('title', title)
         item.add_value('header', header)
         item.add_value('paragraph', content)

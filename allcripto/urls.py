@@ -1,9 +1,10 @@
 from django.urls import path
 
-from . import views
+from .views import BitcoinNews, BitcoinDetail
+
+app_name = 'allcripto'
 
 urlpatterns = [
-    path('', views.index, name="index"),
-#     path('bitcoin', views.bitcoin, name="bitcoin"),
-#     path('detail', views.bitcoin_link, name="bitcoin_detail")
+    path('bitcoin', BitcoinNews.as_view() , name="bitcoin_news"),
+    path('<slug:slug>/', BitcoinDetail.as_view(), name="bitcoin_detail")
 ]

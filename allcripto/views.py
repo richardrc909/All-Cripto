@@ -1,20 +1,23 @@
 from django.shortcuts import render
-# from .models import Bitcoin, BitcoinBody
+from django.views.generic import TemplateView
+from django.views.generic.detail import DetailView
+from .models import Bitcoin, Ethereum
 
+class BitcoinNews(TemplateView):
+    template_name = 'allcripto/bitcoin.html'
 
-def index(request):
-    return render(request, "allcripto/index.html")
+    def get_context_data(self, **kwargs):
 
+        context = super().get_context_data(**kwargs)
+        context['bitcoin_news'] = Bitcoin.objects.all()
+        return context
 
-# def bitcoin(request):
-#     #cambiar mañana a '-id' para que las nuevas noticias se muestren arriba
-#     bitcoin_list = Bitcoin.objects.all().order_by('id')
-#     return render(request, "allcripto/bitcoin.html", {
-#         "bitcoin_list" : bitcoin_list
-#     })
+class BitcoinDetail(DetailView):
+    model = Bitcoin
+    template_name = 'allcripto/bitcoin_detail.html'
+    context_object_name = 'news'
 
-# def bitcoin_link(request):
-#     bitcoin_item = BitcoinBody.objects.get(pk='bitcoinbody_id')
-#     return render(request, "allcripto/bitcoin_detail.html", {
-#         "bitcoin_item" : bitcoin_item
-#     })
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        news = Bitcoin.objects.filter(slug=self.kwargs.get('slug'))
+        return context

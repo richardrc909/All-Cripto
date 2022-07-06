@@ -7,6 +7,16 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+import sys
+import os
+import django
+from decouple import config
+
+sys.path.append('cripto/newscripto')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'newscripto.settings'
+django.setup()
+
+
 BOT_NAME = 'spider_cripto'
 
 SPIDER_MODULES = ['spider_cripto.spiders']
@@ -62,11 +72,11 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'spider_cripto.pipelines.SpiderCriptoPipeline': 300,
-#    'spider_cripto.pipelines.CriptoBodyPipeline': 300
+ITEM_PIPELINES = {
+   # 'spider_cripto.pipelines.SpiderCriptoPipeline': 300,
+   'spider_cripto.pipelines.CriptoAnchorPipeline': 300
 
-# }
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

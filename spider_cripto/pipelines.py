@@ -9,41 +9,31 @@ import sqlite3
 from itemadapter import ItemAdapter
 
 
-class SpiderCriptoPipeline:
-
-
-    def __init__(self) -> None:
-        self.con = sqlite3.connect('allcripto.db')
-        self.cur = self.con.cursor()
-        self.create_table()
-
-
-    def create_table(self):
-        self.cur.execute("""CREATE TABLE IF NOT EXISTS allcripto_bitcoin(
-            title TEXT,
-            header TEXT
-        )""")
-
-
-
+class SpiderCriptoPipeline(object):
 
     def process_item(self, item, spider):
-        self.cur.execute(""" INSERT INTO allcripto_bitcoin (title, header) VALUES(?,?)""",
-                         (item['title'][0], item['header'][0]))
-        self.con.commit()
-        return item
+        item.save()
 
 
-class CriptoBodyPipeline():
+class CriptoAnchorPipeline():
 
-    
     def __init__(self) -> None:
         self.con = sqlite3.connect('allcripto.db')
         self.cur = self.con.cursor()
-        self.create_table()
 
+    def process_item(self, item, spider):
 
-    def create_table(self):
-        self.cur.execute("""CREATE TABLE IF NOT EXISTS allcripto_bitcoinbody(
-            paragraph TEXT
-        )""")
+        # datos_bit = self.cur.execute(""" INSERT INTO allcripto_anchor_bit (anchor_bit) VALUES(?)""",
+        #                  (item['anchor']))
+        datos_eth = self.cur.execute(""" INSERT INTO allcripto_anchor_eth (anchor_eth) VALUES(?)""",
+                         (item['anchor']))
+        # datos_meta = self.cur.execute(""" INSERT INTO allcripto_anchor_meta (anchor_meta) VALUES(?)""",
+        #                  (item['anchor']))
+        # datos_tutorial = self.cur.execute(""" INSERT INTO allcripto_anchor_tutorial (anchor_tutorial) VALUES(?)""",
+        #                  (item['anchor']))
+        # datos_prices = self.cur.execute(""" INSERT INTO allcripto_anchor_prices (anchor_prices) VALUES(?)""",
+        #                  (item['anchor']))
+        # datos_business = self.cur.execute(""" INSERT INTO allcripto_anchor_business (anchor_business) VALUES(?)""",
+        #                  (item['anchor']))
+        self.con.commit()
+        return item
