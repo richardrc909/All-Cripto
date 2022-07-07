@@ -73,8 +73,8 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   # 'spider_cripto.pipelines.SpiderCriptoPipeline': 300,
-   'spider_cripto.pipelines.CriptoAnchorPipeline': 300
+   'spider_cripto.pipelines.SpiderCriptoPipeline': 300,
+   # 'spider_cripto.pipelines.CriptoAnchorPipeline': 300
 
 }
 
