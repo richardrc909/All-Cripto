@@ -1,0 +1,15 @@
+
+{% block content %}
+    
+{% for bit in bitcoin_news %}
+<a href=" {% url 'allcripto:bitcoin_detail' slug=bit.slug %} ">
+
+<li>{{ bit.title }}</li>
+</a>
+<span>{{ bit.header }}</span>
+
+
+{% endfor %}
+    
+    
+{% endblock content %}

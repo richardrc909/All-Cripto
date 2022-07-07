@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" 
+        content="Noticias cripto en un sola web" />
+    <meta name="robots" content="index,follow">
+    <title>All Crypto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+</head>
+    <body class="content">
+        <section class="header">
+            <h3>Allcrypto</h3>
+        </section>
+        <section class="category">
+            {% block content %}
+            <figure>
+                <a href="allcripto/bitcoin">
+                    <p>Bitcoin</p>
+                <img class="items" src="{% static 'images/pexels-alesia-kozik-6765373.jpg' %}" alt="Bitcoin" ></a>
+            </figure>
+            <figure>
+                <a href="ethereum">
+                    <img class="items" src="{% static 'images/pexels-jievani-8175569.jpg' %}" alt="Ethereum" >
+                </a>
+            </figure>
+            <figure>
+                <a href="#Metaverso">
+                    <img class="items" src="{% static 'images/7 Altcoins Primed for a June Rally.png' %}" alt="Altcoins" ></a>
+            </figure>
+        </section>
+        <section class="category">
+            <figure>
+                <a href="#Tutoriales"> 
+                    <img class="items" src="{% static 'images/¿Cómo se crea una criptomoneda_ Solo necesitas 2 minutos y una app (1).png' %}" alt="Tutoriales" ></a>
+            </figure>
+            <figure>
+                <a href="#Analisis de Precios">
+                    <img class="items" src="{% static 'images/Mercado bursátil o forex gráfico en concepto gráfico _ Foto Premium.jpg'%}" alt="Analisis de Mercado" >
+                </a>
+            </figure>
+            <figure>
+                <a href="#Noticias de Negocios">
+                    <img class="items" src="{% static 'images/job-gbf082170e_640.jpg'%}" alt="Noticias de Negocios" >
+                </a>
+            </figure>
+        </section>
+        {% endblock content %}
+        <footer>
+            <p></p>
+        </footer>
+    </body>

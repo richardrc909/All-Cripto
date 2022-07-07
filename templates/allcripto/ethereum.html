@@ -1,0 +1,14 @@
+{% block content %}
+    
+{% for eth in ethereum_news %}
+<a href=" {% url 'allcripto:ethereum_detail' slug=bit.slug %} ">
+
+<li>{{ eth.title }}</li>
+</a>
+<span>{{ eth.header }}</span>
+
+
+{% endfor %}
+    
+    
+{% endblock content %}

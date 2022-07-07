@@ -5,3 +5,6 @@ __pycache__/
 migrations/
 allcripto.db
 .env
+images/
+.png
+.jpg
