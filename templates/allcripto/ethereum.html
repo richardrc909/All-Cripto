@@ -1,7 +1,7 @@
 {% block content %}
     
 {% for eth in ethereum_news %}
-<a href=" {% url 'allcripto:ethereum_detail' slug=bit.slug %} ">
+<a href=" {% url 'allcripto:ethereum_detail' slug=eth.slug %} ">
 
 <li>{{ eth.title }}</li>
 </a>
