@@ -11,11 +11,16 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
 </head>
     <body class="content">
-        <section class="header">
+    <section class="headers">
+        <section class="title">
             <h3>Allcrypto</h3>
         </section>
-        <section class="category">
+        <section class="header-image">
+            <img src="{% static 'images/allcripto.jpg' %}" alt="">
+        </section>
+    </section>
             {% block content %}
+        <section class="category">
             <figure>
                 <a href="allcripto/bitcoin">
                     <p>Bitcoin</p>
@@ -49,6 +54,6 @@
         </section>
         {% endblock content %}
         <footer>
-            <p></p>
+            <p>footer</p>
         </footer>
     </body>
